@@ -1,4 +1,4 @@
-# docker build -t my-python-app .
+# nlp_practiceでdocker build -t nlp_python_practice -f ./pyenv-docker/Dockerfile .
 # pyenvでpythonのバージョン管理を行い、開発環境を作成する
 
 FROM ubuntu:latest
@@ -33,7 +33,7 @@ RUN pyenv install 3.6.7 && \
 ENV PATH $PATH:/root/.pyenv/shims
 
 WORKDIR /usr/src/app
-COPY requirements.txt ./
-COPY ./../src ./
+COPY ./pyenv-docker/requirements.txt ./
+COPY ./nlp/src/*.py ./
 RUN pip install --upgrade pip
 RUN pip install --no-cache-dir -r requirements.txt
